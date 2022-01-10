@@ -38,4 +38,11 @@ function countDigits(n) {
   return Math.floor(Math.log10(n) + 1);
 }
 
+/**
+* 4. Convert number to string and find length of string
+*/
+function countDigits(n) {
+    return n.toString().length;
+}
+
 
