@@ -23,3 +23,19 @@ if (number == 0)
   return 1;
 return 1 + countDigits(number);
 }
+
+
+/**
+* 3. Log based solution
+* Since for eg a 4 digit number (n):-
+* 1000 <= n <10000 (taking log)
+* 3 <= log10(n) < 4
+* n -1 <= log10(n) < n 
+* n <= log10(n)+ 1 < n + 1 (taking floor(truncating decimals) and considering left part of equation)
+* n = Math.floor(log10(n)+ 1)
+*/
+function countDigits(n) {
+  return Math.floor(Math.log10(n) + 1);
+}
+
+
