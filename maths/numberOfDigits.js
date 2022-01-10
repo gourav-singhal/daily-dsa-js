@@ -15,7 +15,7 @@ function countDigits(n) {
 }
 
 /**
-* 1. Brute force method. (Recursive)
+* 2. Brute force method. (Recursive)
 */
 function countDigits(n) {
 const number = Math.floor(n / 10);
