@@ -13,3 +13,13 @@ function countDigits(n) {
 
   return numOfDigits;
 }
+
+/**
+* 1. Brute force method. (Recursive)
+*/
+function countDigits(n) {
+const number = Math.floor(n / 10);
+if (number == 0)
+  return 1;
+return 1 + countDigits(number);
+}
