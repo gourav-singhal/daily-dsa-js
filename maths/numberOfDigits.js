@@ -31,7 +31,7 @@ return 1 + countDigits(number);
 * 1000 <= n <10000 (taking log)
 * 3 <= log10(n) < 4
 * n -1 <= log10(n) < n 
-* n <= log10(n)+ 1 < n + 1 (taking floor(truncating decimals) and considering left part of equation)
+* n <= log10(n)+ 1 < n + 1 (taking floor(truncating decimals))
 * n = Math.floor(log10(n)+ 1)
 */
 function countDigits(n) {
