@@ -12,3 +12,12 @@ function factorial(n) {
   }
   return factorial;
 }
+
+/**
+* 2. Brute force (Recursive solution)
+*/
+
+function factorial(n) {
+  if (n <= 1) return 1;
+  return n * factorial(n-1);
+}
