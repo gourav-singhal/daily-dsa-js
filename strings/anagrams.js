@@ -6,7 +6,7 @@
 */
 
 /**
-* 1. Brute force (Hash maps)
+* 1. Brute force (Hash maps) --> O(n)
 */
 
 function anagram(s1, s2) {
@@ -35,3 +35,13 @@ function anagram(s1, s2) {
     
     return true;
 }
+
+
+/**
+* 2. Short solution but complexity O(nlog(n))
+*/
+
+function anagram(s1, s2) {
+    return s1.split('').sort().join('') == s2.split('').sort().join('');
+}
+
