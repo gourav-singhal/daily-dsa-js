@@ -38,5 +38,14 @@ function gcd(a, b) {
   return a;
 }
 
-      
+/**
+* 3. Euclidean Algorithm (Better approach) 
+* Recursive approach
+*/
+
+function gcd(a, b) {
+  if (b == 0) return a;
+  return gcd(b, a % b);
+}
+
   
