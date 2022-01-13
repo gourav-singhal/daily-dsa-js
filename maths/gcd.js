@@ -18,5 +18,25 @@ function gcd(a, b) {
   return res;
 }
 
+/**
+* 2. Euclidean Algorithm
+* if g is the GCD of a and b
+* then g is also the GCD of a-b 
+* where a > b
+*/
+
+function gcd(a, b) {
+  if (a == 0) return b;
+  if (b == 0) return a;
+  
+  while (a != b) {
+    if (a > b)
+      a = a - b;
+    else 
+      b = b - a;
+  }
+  return a;
+}
+
       
   
