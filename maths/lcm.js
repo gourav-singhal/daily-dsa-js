@@ -12,3 +12,18 @@ function lcm(a, b) {
     res++;
   }
 }
+
+/**
+* 2. Using formula
+* a * b = gcd(a,b) * lcm(a, b)
+*/
+
+function gcd(a, b) {
+  if (b == 0) return a;
+  return gcd(b, a % b);
+}
+
+function lcm(a, b) {
+  return (a * b) / gcd(a, b);
+}
+
