@@ -7,7 +7,7 @@
 // howSum(7, [2,3]) --> [2+2+3]
 
 /**
-1. Brute force (O(n^m * m))
+* 1. Brute force (O(n^m * m))
 */
 
 function howSum(target, numbers) {
@@ -25,4 +25,24 @@ function howSum(target, numbers) {
 }
 
 
+/**
+* 2. DP O(n*m^2)
+*/
 
+function howSum(target, numbers, memo={}) {
+  if (target in memo) return memo[target];
+  if (target === 0) return [];
+  if (target < 0) return null;
+  
+  for (let num of numbers) {
+    const remainder = target - num;
+    const res = howSum(remainder, numbers, memo);
+    
+    if (res !== null) {
+      memo[target] = [...res, num]
+      return memo[target];
+    }
+  }
+  memo[target] = null
+  return memo[target];
+}
