@@ -30,3 +30,34 @@ function bestSum(target, numbers) {
   }
   return smallestCombination;
 }
+
+
+/**
+* 2. DP approach O(m^2 * n)
+*/
+
+function bestSum(target, numbers, memo={}) {
+  if (target in memo) return memo[target];
+  if (target === 0) return [];
+  if (target < 0) return null;
+  
+  let smallestCombination = null;
+  for (let num of numbers) {
+    const remainder = target - num;
+    const remainderCombination = bestSum(remainder, numbers, memo);
+    
+
+    if (remainderCombination !== null) {
+      const newCombination = [...remainderCombination, num];
+      
+      if (smallestCombination === null || newCombination.length < smallestCombination.length) {
+        smallestCombination = newCombination;
+      }
+    }
+  }
+  memo[target] = smallestCombination;
+  return memo[target];
+}
+
+  
+  
