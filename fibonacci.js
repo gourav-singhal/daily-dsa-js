@@ -27,7 +27,7 @@ function fib(n, memo = {}) {
 }
 
 /**
-3. Dynamic programming solution (Tabulation)
+3. Dynamic programming solution (Tabulation) O(n)
 */
 
 function fib(n) {
