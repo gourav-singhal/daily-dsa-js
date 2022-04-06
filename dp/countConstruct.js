@@ -24,7 +24,25 @@ function countCostruct(target, wordBank) {
     return numWays;
    }
    
-   
+   /**
+   * 2. DP 
+   */
+
+function countCostruct(target, wordBank, memo={}) {
+  if (target in memo) return memo[target];
+  if (target === "") return 1;
+  
+  let numWays = 0;
+  for (let word of wordBank) {
+    if (target.startsWith(word)) {
+      const suffix = target.slice(word.length);
+      const suffixWays = countCostruct(suffix, wordBank, memo);
+      numWays += suffixWays;
+      }
+    }
+    memo[target] = numWays;
+    return numWays;
+   }
    
    
    
