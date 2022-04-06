@@ -26,3 +26,27 @@ function constructWays(target, wordBank) {
 }
 return result;
 }
+
+/**
+* 2. DP
+*/
+
+function constructWays(target, wordBank, memo={}) {
+  if (target in memo) return memo[target];
+  if (target === '') return [[]];
+  
+  const result = [];
+  for(let word of wordBank) {
+    if (target.startsWith(word)) {
+      const suffix = target.slice(word.length);
+      const suffixWays = constructWays(suffix, wordBank, memo);
+      
+      const targetWays = suffixWays.map(way => [word, ...way]);
+      result.push(...targetWays);
+    }
+  }
+  memo[target] = result;
+  return result;
+}
+  
+  
