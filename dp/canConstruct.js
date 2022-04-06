@@ -41,3 +41,24 @@ function canConstruct(target, wordBank, memo={}) {
   memo[target] = false;
   return false;
 }
+
+
+/**
+* 3. DP --tabulation -- O(n * m^2)
+*/
+
+function canConstruct(target, wordBank) {
+  const table = Array(target+1).fill(false);
+  table[0] = true;
+  
+  for (let i = 0; i <= target.length; i++) {
+    if (table[i] === true) {
+      for (let word of wordBank) {
+        if (target.slice(i, i+word.length) === word) {
+          table[i+word.length] = true;
+        }
+      }
+    }
+  }
+  return table[target.length];
+}
