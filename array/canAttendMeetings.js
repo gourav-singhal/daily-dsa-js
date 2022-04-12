@@ -27,3 +27,22 @@ function canAttendMeetings(intervals) {
   
   return true
 }
+
+
+// Given an array of meeting time intervals consisting of start and end times 
+// [[s1,e1],[s2,e2],…] (si < ei), find the minimum number of conference rooms required.
+
+// For example, Given [[0, 30],[5, 10],[15, 20]], return 2
+
+function numberOfRooms(intervals) {
+  const start = intervals.sort((a,b) => a[0] - b[0]);
+  const end = [...intervals].sort((a,b) => a[1] - b[1]);
+  
+  let rooms = 0, j = 0;
+  
+  for (let i = 0; i < intervals.length; i++) {
+    if (start[i][0] < end[j][1]) rooms++;
+    else j++;
+  }
+  return rooms;
+}
